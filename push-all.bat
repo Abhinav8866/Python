@@ -1,25 +1,22 @@
 @echo off
-echo ==============================
-echo       PUSHING GO REPO
-echo ==============================
-
-cd /d "D:\Go under Garav Sir\Go"
-git add .
-git commit -m "Daily Go practice update"
-git push
-
-echo.
-echo ==============================
-echo     PUSHING PYTHON REPO
-echo ==============================
-
 cd /d "D:\Python"
+
+echo.
+echo ===== PYTHON PRACTICE =====
+echo.
+
 git add .
-git commit -m "Daily Python practice update"
+
+git diff --cached --quiet
+if %errorlevel%==0 (
+    echo No changes to push.
+    pause
+    exit /b
+)
+
+git commit -m "Daily Python practice"
 git push
 
 echo.
-echo ==============================
-echo       DONE
-echo ==============================
+echo ===== PYTHON PUSH COMPLETE =====
 pause
